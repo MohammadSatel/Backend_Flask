@@ -39,7 +39,7 @@ def create_book():
     except Exception as e:
         db.session.rollback()
         return jsonify({'error': f'Error creating book: {str(e)}'}), 500
-
+    
 # Route to update an existing book
 @books_api.route('/<int:book_id>/', methods=['PUT'])
 def edit_book(book_id):
