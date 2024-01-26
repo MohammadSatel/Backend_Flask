@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app, db)
 
-CORS(app)  # Enable CORS
+CORS(app, resources={r'/api/*': {'origins': '*'}})
 
 # Register Blueprints
 from project.books.views import books_api

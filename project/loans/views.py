@@ -86,3 +86,6 @@ def get_loan_details(loan_id):
         'return_date': loan.return_date.isoformat()
     }
     return jsonify(loan=loan_data)
+
+## Route to update a loan
+## todo:Implement this route
