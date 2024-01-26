@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app, db)
 
-CORS(app, resources={r'/api/*': {'origins': '*'}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # This allows all origins for all routes under /api/
 
 # Register Blueprints
 from project.books.views import books_api
