@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 # Database Setup
 app = Flask(__name__, static_folder='../Frontend_Vue/client/dist', static_url_path='')

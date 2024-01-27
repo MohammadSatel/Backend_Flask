@@ -3,7 +3,8 @@ from project import db
 from project.loans.models import Loan
 from project.books.models import Book
 from project.customers.models import Customer
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
+
 
 # Blueprint for loans API with CORS enabled
 loans_api = Blueprint('loans_api', __name__, url_prefix='/api/loans')
@@ -26,7 +27,8 @@ def list_loans():
     return jsonify(loans=loan_list)
 
 # Route to create a new loan, handling both POST and OPTIONS for CORS preflight
-@loans_api.route('/', methods=['POST', 'OPTIONS'])
+@loans_api.route('/', methods=['POST'])
+@cross_origin()
 def create_loan():
     if request.method == 'OPTIONS':
         # Respond to CORS preflight with necessary headers
